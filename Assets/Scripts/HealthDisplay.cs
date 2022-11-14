@@ -10,15 +10,15 @@ public class HealthDisplay : MonoBehaviour
 
     private Coroutine _healthBarChange;
 
+    private void OnEnable()
+    {
+        _health.ValueChanged += OnValueChanged;
+    }
+
     private void Start()
     {
         _slider.maxValue = _health.MaxValue;
         _slider.value = _health.CurrentValue;
-    }
-
-    private void OnEnable()
-    {
-        _health.ValueChanged += OnValueChanged;
     }
 
     private void OnDisable()
